@@ -1,16 +1,44 @@
 import React from "react";
+import useId from "react-id-generator";
 
-const Form = () => {
+const Form = ({ setInputText, inputText, setToDo, toDo }) => {
 
-    // === INPUT HANDLER ===
-    const inputTextHandler = (e) => {
-        console.log("Text has been inputted");
-    }
+	const idList = useId(); // id generated from the package: react-id-generator
+
+	// === INPUT HANDLER ===
+	const inputTextHandler = (e) => {
+		console.log(e.target.value);
+		setInputText(e.target.value);
+	};
+
+	// === SUMBIT TODO HANDLER ===
+	const submitToDoHandler = (e) => {
+		e.preventDefault(); // Do not refresh
+		setToDo([
+			...toDo,
+			{
+				text: inputText,
+				completed: false,
+				deleted: false,
+				id: idList,
+			},
+		]);
+		setInputText("");
+	};
 
 	return (
 		<form>
-			<input onInput={inputTextHandler} type="text" className="todo-input"/>
-			<button className="todo-button" type="submit">
+			<input
+				onInput={inputTextHandler}
+				type="text"
+				className="todo-input"
+				value={inputText}
+			/>
+			<button
+				onClick={submitToDoHandler}
+				className="todo-button"
+				type="submit"
+			>
 				<i className="fas fa-plus-square"></i>
 			</button>
 			<div className="select">
