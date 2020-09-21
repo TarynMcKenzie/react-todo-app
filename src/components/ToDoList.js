@@ -1,7 +1,7 @@
 import React from "react";
 
 // COMPONENT
-import Todo from "./ToDo";
+import ToDo from "./ToDo";
 
 
 const ToDoList = ({ToDo}) => {

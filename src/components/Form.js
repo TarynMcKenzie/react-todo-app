@@ -1,7 +1,7 @@
 import React from "react";
 import useId from "react-id-generator";
 
-const Form = ({ setInputText, inputText, setToDo, toDo }) => {
+const Form = ({ setInputText, inputText, setToDo, ToDo }) => {
 
 	const idList = useId(); // id generated from the package: react-id-generator
 
@@ -15,7 +15,7 @@ const Form = ({ setInputText, inputText, setToDo, toDo }) => {
 	const submitToDoHandler = (e) => {
 		e.preventDefault(); // Do not refresh
 		setToDo([
-			...toDo,
+			...ToDo,
 			{
 				text: inputText,
 				completed: false,
