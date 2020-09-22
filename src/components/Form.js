@@ -20,7 +20,7 @@ const Form = ({ setInputText, inputText, setToDo, ToDo }) => {
 				text: inputText,
 				completed: false,
 				deleted: false,
-				id: idList,
+				key: idList,
 			},
 		]);
 		setInputText("");

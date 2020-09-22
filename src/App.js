@@ -6,6 +6,7 @@ import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
 
 function App() {
+	
 	const [inputText, setInputText] = useState(" "); // Empty string useState for the text input
 	const [ToDo, setToDo] = useState([]); // Empty array useState
 

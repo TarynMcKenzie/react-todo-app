@@ -1,9 +1,8 @@
 import React from "react";
 
-const ToDo = ({ text }) => {
+const ToDos = ({text}) => {
 	return (
 		<div className="todo">
-			<ul>
 				<li className="todo-item">{text}</li>
 				<button className="btn complete-btn">
 					<i className="fas fa-check"></i>
@@ -14,9 +13,8 @@ const ToDo = ({ text }) => {
 				<button className="btn edit-btn">
 					<i className="fas fa-pen"></i>
 				</button>
-			</ul>
 		</div>
 	);
 };
 
-export default ToDo;
+export default ToDos;
