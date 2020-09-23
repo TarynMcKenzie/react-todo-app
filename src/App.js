@@ -6,9 +6,8 @@ import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
 
 function App() {
-	
 	const [inputText, setInputText] = useState(" "); // Empty string useState for the text input
-	const [ToDo, setToDo] = useState([]); // Empty array useState
+	const [todos, setTodos] = useState([]); // Empty array useState
 
 	return (
 		<div className="App">
@@ -18,10 +17,12 @@ function App() {
 			<Form
 				inputText={inputText}
 				setInputText={setInputText}
-				ToDo={ToDo}
-				setToDo={setToDo}
-			/> {/* Pass ToDo state and the inputText state down to the Form.js */}
-			<ToDoList ToDo={ToDo} /> {/* Pass ToDo state down to the ToDoList.js */}
+				todos={todos}
+				setTodos={setTodos}
+			/>
+			{/* Pass ToDo state and the inputText state down to the Form.js */}
+			<ToDoList todos={todos} setToDos={setTodos} />
+			{/* Pass ToDo state down to the ToDoList.js */}
 		</div>
 	);
 }

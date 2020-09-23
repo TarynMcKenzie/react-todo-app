@@ -1,8 +1,7 @@
 import React from "react";
 import useId from "react-id-generator";
 
-const Form = ({ setInputText, inputText, setToDo, ToDo }) => {
-
+const Form = ({ setInputText, inputText, setTodos, todos }) => {
 	const idList = useId(); // id generated from the package: react-id-generator
 
 	// === INPUT HANDLER ===
@@ -14,8 +13,8 @@ const Form = ({ setInputText, inputText, setToDo, ToDo }) => {
 	// === SUMBIT TODO HANDLER ===
 	const submitToDoHandler = (e) => {
 		e.preventDefault(); // Do not refresh
-		setToDo([
-			...ToDo,
+		setTodos([
+			...todos,
 			{
 				text: inputText,
 				completed: false,
