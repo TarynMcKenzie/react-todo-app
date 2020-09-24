@@ -21,7 +21,7 @@ function App() {
 				setTodos={setTodos}
 			/>
 			{/* Pass ToDo state and the inputText state down to the Form.js */}
-			<ToDoList todos={todos} setToDos={setTodos} />
+			<ToDoList todos={todos} setTodos={setTodos} />
 			{/* Pass ToDo state down to the ToDoList.js */}
 		</div>
 	);

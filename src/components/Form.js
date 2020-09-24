@@ -6,7 +6,6 @@ const Form = ({ setInputText, inputText, setTodos, todos }) => {
 
 	// === INPUT HANDLER ===
 	const inputTextHandler = (e) => {
-		console.log(e.target.value);
 		setInputText(e.target.value);
 	};
 
