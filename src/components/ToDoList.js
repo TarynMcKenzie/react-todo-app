@@ -10,7 +10,7 @@ const ToDoList = ({ todos, setTodos }) => {
 				{todos.map((todo) => (
 					<ToDo
 						text={todo.text}
-						key={todo.key}
+						key={todo.id}
 						todos={todos}
 						setTodos={setTodos}
 						todo={todo}

@@ -18,7 +18,7 @@ const Form = ({ setInputText, inputText, setTodos, todos }) => {
 				text: inputText,
 				completed: false,
 				deleted: false,
-				key: idList,
+				id: idList,
 			},
 		]);
 		setInputText("");
@@ -27,7 +27,7 @@ const Form = ({ setInputText, inputText, setTodos, todos }) => {
 	return (
 		<form>
 			<input
-				onInput={inputTextHandler}
+				onChange={inputTextHandler}
 				type="text"
 				className="todo-input"
 				value={inputText}
