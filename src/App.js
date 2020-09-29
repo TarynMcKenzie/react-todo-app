@@ -7,7 +7,8 @@ import ToDoList from "./components/ToDoList";
 
 function App() {
 	const [inputText, setInputText] = useState(" "); // Empty string useState for the text input
-	const [todos, setTodos] = useState([]); // Empty array useState
+	const [todos, setTodos] = useState([]); // Empty array useState for todo list
+	const [status, setStatus] = useState("all"); // Empty string useState for the todo status list (Completed, Uncompleted, All)
 
 	return (
 		<div className="App">
@@ -19,6 +20,7 @@ function App() {
 				setInputText={setInputText}
 				todos={todos}
 				setTodos={setTodos}
+				setStatus={setStatus}
 			/>
 			{/* Pass ToDo state and the inputText state down to the Form.js */}
 			<ToDoList todos={todos} setTodos={setTodos} />

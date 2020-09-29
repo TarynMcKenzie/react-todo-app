@@ -1,7 +1,7 @@
 import React from "react";
 import useId from "react-id-generator";
 
-const Form = ({ setInputText, inputText, setTodos, todos }) => {
+const Form = ({ setInputText, inputText, setTodos, todos, setStatus }) => {
 	const idList = useId(); // id generated from the package: react-id-generator
 
 	// === INPUT HANDLER ===
@@ -24,6 +24,11 @@ const Form = ({ setInputText, inputText, setTodos, todos }) => {
 		setInputText("");
 	};
 
+	// === STATUS HANDLER ===
+	const statusHandler = (e) => {
+		setStatus(e.target.value);
+	}
+
 	return (
 		<form>
 			<input
@@ -39,7 +44,7 @@ const Form = ({ setInputText, inputText, setTodos, todos }) => {
 			>
 				<i className="fas fa-plus-square"></i>
 			</button>
-			<div className="select">
+			<div className="select" onChange={statusHandler}>
 				<select name="todos" className="filter-todo">
 					<option value="all">All</option>
 					<option value="completed">Completed</option>
