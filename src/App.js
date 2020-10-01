@@ -12,9 +12,15 @@ function App() {
 	const [status, setStatus] = useState("all"); // Empty string useState for the todo status list (Completed, Uncompleted, All)
 	const [filteredTodos, setFilteredTodos] = useState([]); //Empty array that will store list based on the list filter selection
 
-	// === USE EFFECT ===
+	// === USE EFFECT ON REFRESH ===
+	useEffect(() => {
+		getTodosLocal();
+	}, []);
+
+	// === USE EFFECT FOR FILTERS ===
 	useEffect(() => {
 		filterHandler();
+		saveTodosLocal();
 	}, [todos, status]);
 
 	// === FILTER FUNCTION ===
@@ -36,6 +42,24 @@ function App() {
 		}
 	};
 
+	// === SAVE TO LOCAL STORAGE ===
+	const saveTodosLocal = () => {
+		localStorage.setItem("todos", JSON.stringify(todos));
+	};
+
+	// === GET LOCAL STORAGE ===
+	const getTodosLocal = () => {
+		if (localStorage.getItem("todos") === null) {
+			// if there is no local todos --> then save a new empty array list
+			localStorage.setItem("todos", JSON.stringify([]));
+		} else {
+			// if the there are local todos --> get the current local list
+			let localTodos = JSON.parse(localStorage.getItem("todos"));
+			setTodos(localTodos); //set the state to the local todos
+		}
+	};
+
+
 	return (
 		<div className="App">
 			<header>
@@ -49,7 +73,11 @@ function App() {
 				setStatus={setStatus}
 			/>
 			{/* Pass ToDo state and the inputText state down to the Form.js */}
-			<ToDoList todos={todos} setTodos={setTodos} filteredTodos={filteredTodos}/>
+			<ToDoList
+				todos={todos}
+				setTodos={setTodos}
+				filteredTodos={filteredTodos}
+			/>
 			{/* Pass ToDo state down to the ToDoList.js */}
 		</div>
 	);

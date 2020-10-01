@@ -3,7 +3,7 @@ import React from "react";
 // COMPONENT
 import ToDo from "./ToDo";
 
-const ToDoList = ({ todos, setTodos,filteredTodos }) => {
+const ToDoList = ({ todos, setTodos, filteredTodos }) => {
 	return (
 		<div className="todo-container">
 			<ul className="todo-list">
