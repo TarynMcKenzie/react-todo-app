@@ -1,6 +1,7 @@
 import React from "react";
 import useId from "react-id-generator";
 
+
 const Form = ({ setInputText, inputText, setTodos, todos, setStatus }) => {
 	const idList = useId(); // id generated from the package: react-id-generator
 
@@ -24,17 +25,13 @@ const Form = ({ setInputText, inputText, setTodos, todos, setStatus }) => {
 		setInputText("");
 	};
 
-	// === STATUS HANDLER ===
-	const statusHandler = (e) => {
-		setStatus(e.target.value);
-	}
-
 	return (
-		<form>
+		<form className="todo-form">
 			<input
 				onChange={inputTextHandler}
 				type="text"
 				className="todo-input"
+				placeholder="Add a new task..."
 				value={inputText}
 			/>
 			<button
@@ -44,13 +41,6 @@ const Form = ({ setInputText, inputText, setTodos, todos, setStatus }) => {
 			>
 				<i className="fas fa-plus-square"></i>
 			</button>
-			<div className="select" onChange={statusHandler}>
-				<select name="todos" className="filter-todo">
-					<option value="all">All</option>
-					<option value="completed">Completed</option>
-					<option value="uncompleted">Uncompleted</option>
-				</select>
-			</div>
 		</form>
 	);
 };

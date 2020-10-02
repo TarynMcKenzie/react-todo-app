@@ -4,10 +4,11 @@ import "./App.css";
 // ===== COMPONENTS =====
 import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
+import Filter from "./components/Filter";
 
 function App() {
 	// === USE STATES ===
-	const [inputText, setInputText] = useState(" "); // Empty string useState for the text input
+	const [inputText, setInputText] = useState(""); // Empty string useState for the text input
 	const [todos, setTodos] = useState([]); // Empty array useState for todo list
 	const [status, setStatus] = useState("all"); // Empty string useState for the todo status list (Completed, Uncompleted, All)
 	const [filteredTodos, setFilteredTodos] = useState([]); //Empty array that will store list based on the list filter selection
@@ -59,26 +60,34 @@ function App() {
 		}
 	};
 
-
 	return (
 		<div className="App">
-			<header>
-				<h1>Honey Do List</h1>
-			</header>
-			<Form
-				inputText={inputText}
-				setInputText={setInputText}
-				todos={todos}
-				setTodos={setTodos}
-				setStatus={setStatus}
-			/>
-			{/* Pass ToDo state and the inputText state down to the Form.js */}
-			<ToDoList
-				todos={todos}
-				setTodos={setTodos}
-				filteredTodos={filteredTodos}
-			/>
-			{/* Pass ToDo state down to the ToDoList.js */}
+			<article className="todo-card">
+				<header className="todo-card--header">
+					<h1>Honey Do List</h1>
+				</header>
+				<section>
+					<Filter setStatus={setStatus} />
+				</section>
+				<section className="form-container">
+					<Form
+						inputText={inputText}
+						setInputText={setInputText}
+						todos={todos}
+						setTodos={setTodos}
+						setStatus={setStatus}
+					/>
+					{/* Pass ToDo state and the inputText state down to the Form.js */}
+				</section>
+				<section className="todo-list">
+					<ToDoList
+						todos={todos}
+						setTodos={setTodos}
+						filteredTodos={filteredTodos}
+					/>
+					{/* Pass ToDo state down to the ToDoList.js */}
+				</section>
+			</article>
 		</div>
 	);
 }
