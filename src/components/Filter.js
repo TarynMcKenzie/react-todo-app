@@ -1,12 +1,11 @@
 import React from "react";
 
-const Filter = ({setStatus}) => {
-
-    // === STATUS HANDLER ===
+const Filter = ({ setStatus }) => {
+	// === STATUS HANDLER ===
 	const statusHandler = (e) => {
-        setStatus(e.target.value);
-    }
-    
+		setStatus(e.target.value);
+	};
+
 	return (
 		<div className="select" onChange={statusHandler}>
 			<select name="todos" className="filter-todo">

@@ -1,7 +1,6 @@
 import React from "react";
 import useId from "react-id-generator";
 
-
 const Form = ({ setInputText, inputText, setTodos, todos, setStatus }) => {
 	const idList = useId(); // id generated from the package: react-id-generator
 
